@@ -1,0 +1,23 @@
+﻿CODIGO_LOCALIDAD, LOCALIDAD, ZONA, SUBRED_SALUD, ORDEN_ZONA
+1, Usaquén, Norte, Norte, 1
+2, Chapinero, Centro Oriente, Norte, 2
+3, Santa Fe, Centro Oriente, Centro Oriente, 2
+4, San Cristóbal, Sur Oriente, Centro Oriente, 8
+5, Usme, Sur Oriente, Sur, 8
+6, Tunjuelito, Sur, Sur, 7
+7, Bosa, Sur Occidente, Sur Occidente, 6
+8, Kennedy, Sur Occidente, Sur Occidente, 6
+9, Fontibón, Occidente, Sur Occidente, 5
+10, Engativá, Occidente, Norte, 5
+11, Suba, Norte, Norte, 1
+12, Barrios Unidos, Norte, Norte, 1
+13, Teusaquillo, Centro, Norte, 3
+14, Los Mártires, Centro, Centro Oriente, 3
+15, Antonio Nariño, Centro Sur, Centro Oriente, 4
+16, Puente Aranda, Centro Occidente, Sur Occidente, 4
+17, La Candelaria, Centro, Centro Oriente, 3
+18, Rafael Uribe Uribe, Sur Oriente, Centro Oriente, 8
+19, Ciudad Bolívar, Sur, Sur, 7
+20, Sumapaz, Rural, Sur, 9
+FUERA_DE_BOGOTA, Fuera de Bogotá, Fuera de Bogotá, No aplica, 98
+SIN_D, Sin información, Sin información, Sin información, 99
