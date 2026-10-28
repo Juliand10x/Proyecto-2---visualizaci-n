@@ -4,7 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[spanish, es-nodecimaldot]{babel}
 \usepackage{amsmath, amssymb, amsfonts}
-\usepackage{geometry}
+\usepackage[top=1.8cm, bottom=2.0cm, left=1.8cm, right=1.8cm]{geometry}
 \usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{tabularx}
@@ -12,61 +12,51 @@
 \usepackage{microtype}
 \usepackage{graphicx}
 \usepackage{enumitem}
+\usepackage{xcolor}
 
-% Márgenes estándar de 2.0 cm
-\geometry{margin=2.0cm}
+% Paleta de colores ejecutiva
+\definecolor{primary}{RGB}{27, 54, 93}      % Azul Marino Institucional (#1B365D)
+\definecolor{secondary}{RGB}{46, 134, 171}  % Azul Acero (#2E86AB)
+\definecolor{accent}{RGB}{224, 90, 71}      % Coral (#E05A47)
+\definecolor{teal}{RGB}{0, 168, 150}        % Verde Azulado (#00A896)
+\definecolor{lightgray}{RGB}{248, 249, 250} % Gris suave (#F8F9FA)
 
-% Configuración de hipervínculos académica
 \hypersetup{
     colorlinks=true,
-    linkcolor=black,
-    citecolor=black,
-    urlcolor=black
+    linkcolor=primary,
+    citecolor=primary,
+    urlcolor=secondary
 }
 
 % Encabezados y pie de página limpios y académicos
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0.4pt}
-\fancyhead[L]{\small\itshape Universidad Externado de Colombia}
-\fancyhead[R]{\small\bfseries Visualización 1 --- 2do Proyecto}
-\fancyfoot[C]{\thepage}
+\fancyhead[L]{\small\itshape Universidad Externado de Colombia --- Visualización 1}
+\fancyhead[R]{\small\bfseries Informe Ejecutivo: Determinantes del Bienestar Global}
+\fancyfoot[C]{\small Página \thepage\ de 4}
+
+\setlist{noitemsep, topsep=2pt, parsep=1pt, partopsep=0pt, leftmargin=*}
 
 \begin{document}
 
 % ==============================================================================
-% PÁGINA 1: PORTADA OFICIAL
+% ENCABEZADO INSTITUCIONAL EJECUTIVO (PÁGINA 1)
 % ==============================================================================
-\begin{titlepage}
-    \centering
-    \vspace*{2.0cm}
-    
-    {\LARGE\bfseries 2do Proyecto: Visualización Reproducible en Python}\\[0.5cm]
-    {\large\itshape Análisis Exploratorio, Determinantes y Arquitectura del Bienestar Global (WHR 2024)}\\[0.6cm]
-    {\Large\textbf{Visualización 1}}\\[2.5cm]
-    
-    \begin{minipage}{0.85\textwidth}
-        \centering
-        \textbf{\large Integrantes:}\\[0.3cm]
-        Julián Steven Duarte\\[0.15cm]
-        Julián Camilo Jiménez\\[1.4cm]
-        
-        \textbf{\large Docente:}\\[0.3cm]
-        Luz Adriana Pineda Barón
-    \end{minipage}
-    
-    \vfill
-    
-    {\normalsize Pregrado en Ciencia de Datos\\
-    Facultad de Finanzas, Gobierno y Relaciones Internacionales\\
-    Universidad Externado de Colombia\\
-    Bogotá D.C., Colombia --- Octubre de 2026}
-    \vspace*{0.5cm}
-\end{titlepage}
+\begin{center}
+    {\scriptsize\textbf{\color{secondary}UNIVERSIDAD EXTERNADO DE COLOMBIA \quad|\quad FACULTAD DE FINANZAS, GOBIERNO Y RR.II.}}\\[0.1cm]
+    {\Large\textbf{\color{primary}2do Proyecto: Visualización Reproducible en Python (Seaborn y Plotly)}}\\[0.1cm]
+    {\large\textbf{Informe Técnico-Ejecutivo: Arquitectura y Determinantes del Bienestar Global (WHR 2024)}}\\[0.15cm]
+    \rule{\linewidth}{0.8pt}\\[0.1cm]
+    \footnotesize
+    \begin{tabularx}{\linewidth}{@{}X X@{}}
+        \textbf{Fuente Oficial:} World Happiness Report 2024 (\texttt{WHR24\_Data\_Figure\_2.1.xls}) & \textbf{Investigadores:} Julián Steven Duarte y Julián Camilo Jiménez \\
+        \textbf{Fecha de Entrega:} 28 de octubre de 2026 & \textbf{Docentes:} Luz Adriana Pineda Barón y Paola Moreno
+    \end{tabularx}\\[0.05cm]
+    \rule{\linewidth}{0.8pt}
+\end{center}
 
-\newpage
-\pagenumbering{arabic}
-\setcounter{page}{2}
+\vspace{-0.2cm}
 
 % ==============================================================================
 % 1. ENCUADRE ESTRATÉGICO, AUDIENCIA Y PREGUNTA ANALÍTICA
@@ -74,14 +64,14 @@
 \section{Encuadre Estratégico, Audiencia y Pregunta Analítica}
 
 \subsection{Audiencia técnica especializada y objetivos de política pública}
-El presente análisis está dirigido a la \textbf{Comisión Técnica de Evaluación de Políticas de Bienestar de Organismos Multilaterales de Cooperación y Desarrollo (PNUD, OCDE, BID)}. Este equipo técnico está compuesto por economistas del desarrollo, científicos de datos y evaluadores de impacto social encargados de diseñar asignaciones presupuestales, estructurar programas de asistencia financiera condicionada y evaluar reformas institucionales en economías de ingreso bajo y medio. 
+El presente análisis está dirigido a la \textbf{Comisión Técnica de Evaluación de Políticas de Bienestar de Organismos Multilaterales de Cooperación y Desarrollo (PNUD, OCDE, BID)}. Este equipo técnico está compuesto por economistas del desarrollo, científicos de datos y evaluadores de impacto social encargados de diseñar asignaciones presupuestales, estructurar programas de asistencia técnica y evaluar reformas institucionales en economías de ingreso bajo y medio. 
 
 La audiencia requiere evidencia cuantitativa rigurosa, reproducible y desagregada que permita discriminar si la inversión pública debe priorizar exclusivamente la infraestructura de capital productivo (crecimiento del PIB) o si, por el contrario, los recursos de cooperación internacional generan mayor retorno marginal en bienestar cuando se canalizan hacia el fortalecimiento de redes de protección comunitaria y la reducción de costos de transacción causados por la corrupción institucional.
 
 \subsection{Problemática y formulación de la pregunta analítica central}
 A nivel global, los países de ingreso medio enfrentan una encrucijada estructural: a pesar de experimentar expansiones económicas sostenidas, diversos territorios exhiben un estancamiento prolongado en la percepción de felicidad y satisfacción vital de sus ciudadanos. Con el fin de desentrañar esta divergencia empírica a partir del \textit{World Happiness Report 2024}, formulamos la siguiente pregunta central de investigación:
 \begin{quote}
-    \itshape
+    \itshape\color{primary}
     ¿Cómo se diferencian los perfiles de bienestar subjetivo entre las macro-regiones del mundo y en qué medida los factores relacionales e institucionales (soporte social, libertad cívica y percepción de corrupción) explican la resiliencia en países de ingreso medio frente a aquellos estancados en trampas de bajo bienestar?
 \end{quote}
 
@@ -91,9 +81,7 @@ A nivel global, los países de ingreso medio enfrentan una encrucijada estructur
 \section{Fuente Oficial, Preparación y Auditoría de Datos}
 
 \subsection{Estructura del conjunto de datos WHR 2024}
-Se utilizó como fuente oficial obligatoria el conjunto de datos \texttt{WHR24\_Data\_Figure\_2.1.xls}, publicado por la Red de Soluciones para el Desarrollo Sostenible (SDSN) de las Naciones Unidas. La base contiene observaciones sobre $N = 143$ países correspondientes al trienio 2021--2023. La variable objetivo principal es el puntaje en la \textbf{Escala de Cantril} ($Ladder\ score \in [0, 10]$), obtenida mediante la encuesta mundial Gallup (\textit{Gallup World Poll}).
-
-El informe descompone aditivamente la evaluación de vida de cada país $i$ como:
+Se utilizó como fuente oficial obligatoria el conjunto de datos \texttt{WHR24\_Data\_Figure\_2.1.xls}, publicado por la Red de Soluciones para el Desarrollo Sostenible (SDSN) de las Naciones Unidas. La base contiene observaciones sobre $N = 143$ países correspondientes al trienio 2021--2023. La variable objetivo principal es el puntaje en la \textbf{Escala de Cantril} ($Ladder\ score \in [0, 10]$), obtenida mediante la encuesta mundial Gallup (\textit{Gallup World Poll}). El informe descompone aditivamente la evaluación de vida de cada país $i$ como:
 \begin{equation}
     Ladder_i = \text{Distopía} + \beta_1 \, \text{PIB}_i + \beta_2 \, \text{Soporte}_i + \beta_3 \, \text{Salud}_i + \beta_4 \, \text{Libertad}_i + \beta_5 \, \text{Generosidad}_i + \beta_6 \, \text{Corrupción}_i + \text{Residuo}_i, \label{eq:cantril}
 \end{equation}
@@ -197,7 +185,7 @@ En cumplimiento estricto de las directrices académicas de la Universidad Extern
 
 \begin{enumerate}
     \item \textbf{Herramienta Empleada y Propósito:} Se utilizó el modelo \textbf{Google Gemini} (a través del entorno de desarrollo Antigravity AI) como soporte en la modularización de scripts de exportación HTML, en la estandarización tipográfica del documento \LaTeX{} y en la formulación de consultas para calibración de contraste cromático institucional según la norma WCAG 2.1.
-    \item \textbf{Registro de Prompts Clave:}
+    \item \textbf{Registro de Prompts Clave Empleados:}
     \begin{itemize}
         \item \textit{Configuración de estilo:} \texttt{"Genera una configuración de rcParams en matplotlib/seaborn con paleta sobria \#1B365D, \#00A896, \#2E86AB y despine para publicación técnica"}.
         \item \textit{Interactividad Plotly:} \texttt{"Estructura un gráfico de barras apiladas en plotly.graph\_objects con menú updatemenus para filtrar entre Top 15, Bottom 15 y 10 regiones sin recargar"}.
