@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/Equipo_Duarte_Jimenez_Proyecto2_Visualizaciones_Interactivas.html" },
+    { "source": "/reporte", "destination": "/Equipo_Duarte_Jimenez_Proyecto2_Visualizaciones_Interactivas.html" }
+  ]
+}
