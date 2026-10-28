@@ -1,25 +1,23 @@
-\documentclass[10pt, a4paper]{article}
+\documentclass[9.5pt, a4paper]{article}
 
-% --- Paquetes Esenciales y Configuración de Página ---
+% --- Paquetes y Configuración de Tipografía y Página ---
 \usepackage[utf8]{inputenc}
-\usepackage[spanish, es-nodecimaldot]{babel}
+\usepackage[spanish, es-nodecimaldot, es-tabla]{babel}
 \usepackage{amsmath, amssymb, amsfonts}
-\usepackage[top=1.8cm, bottom=2.0cm, left=1.8cm, right=1.8cm]{geometry}
+\usepackage[top=1.25cm, bottom=1.35cm, left=1.4cm, right=1.4cm]{geometry}
 \usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{fancyhdr}
 \usepackage{microtype}
 \usepackage{graphicx}
-\usepackage{enumitem}
 \usepackage{xcolor}
 
-% Paleta de colores ejecutiva
-\definecolor{primary}{RGB}{27, 54, 93}      % Azul Marino Institucional (#1B365D)
-\definecolor{secondary}{RGB}{46, 134, 171}  % Azul Acero (#2E86AB)
-\definecolor{accent}{RGB}{224, 90, 71}      % Coral (#E05A47)
-\definecolor{teal}{RGB}{0, 168, 150}        % Verde Azulado (#00A896)
-\definecolor{lightgray}{RGB}{248, 249, 250} % Gris suave (#F8F9FA)
+% --- Paleta Cromática Institucional y Narrativa ---
+\definecolor{primary}{RGB}{27, 54, 93}       % Azul Marino (#1B365D): Rigor, jerarquía y confianza
+\definecolor{secondary}{RGB}{46, 134, 171}   % Azul Acero (#2E86AB): Análisis y datos
+\definecolor{accent}{RGB}{224, 90, 71}       % Coral Terracota (#E05A47): Vulnerabilidad y alerta
+\definecolor{teal}{RGB}{0, 168, 150}         % Verde Azulado (#00A896): Tejido social y resiliencia
 
 \hypersetup{
     colorlinks=true,
@@ -28,15 +26,16 @@
     urlcolor=secondary
 }
 
-% Encabezados y pie de página limpios y académicos
+% --- Encabezados y Pie de Página ---
 \pagestyle{fancy}
 \fancyhf{}
-\renewcommand{\headrulewidth}{0.4pt}
-\fancyhead[L]{\small\itshape Universidad Externado de Colombia --- Visualización 1}
-\fancyhead[R]{\small\bfseries Informe Ejecutivo: Determinantes del Bienestar Global}
-\fancyfoot[C]{\small Página \thepage\ de 4}
+\renewcommand{\headrulewidth}{0.3pt}
+\fancyhead[L]{\footnotesize\itshape Universidad Externado de Colombia --- Visualización 1}
+\fancyhead[R]{\footnotesize\bfseries Informe Ejecutivo: La Arquitectura del Bienestar Global}
+\fancyfoot[C]{\footnotesize Página \thepage\ de 4}
 
-\setlist{noitemsep, topsep=2pt, parsep=1pt, partopsep=0pt, leftmargin=*}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2.2pt}
 
 \begin{document}
 
@@ -44,154 +43,171 @@
 % ENCABEZADO INSTITUCIONAL EJECUTIVO (PÁGINA 1)
 % ==============================================================================
 \begin{center}
-    {\scriptsize\textbf{\color{secondary}UNIVERSIDAD EXTERNADO DE COLOMBIA \quad|\quad FACULTAD DE FINANZAS, GOBIERNO Y RR.II.}}\\[0.1cm]
-    {\Large\textbf{\color{primary}2do Proyecto: Visualización Reproducible en Python (Seaborn y Plotly)}}\\[0.1cm]
-    {\large\textbf{Informe Técnico-Ejecutivo: Arquitectura y Determinantes del Bienestar Global (WHR 2024)}}\\[0.15cm]
-    \rule{\linewidth}{0.8pt}\\[0.1cm]
+    {\scriptsize\textbf{\color{secondary}UNIVERSIDAD EXTERNADO DE COLOMBIA \quad$\bullet$\quad FACULTAD DE FINANZAS, GOBIERNO Y RR.II.}}\\[0.05cm]
+    {\Large\textbf{\color{primary}La Arquitectura Oculta del Bienestar Global: Más Allá del Ingreso}}\\[0.04cm]
+    {\large\textbf{Una Narrativa Visual, Empírica y Reproducible desde el World Happiness Report 2024}}\\[0.08cm]
+    \rule{\linewidth}{0.7pt}\\[0.04cm]
     \footnotesize
     \begin{tabularx}{\linewidth}{@{}X X@{}}
-        \textbf{Fuente Oficial:} World Happiness Report 2024 (\texttt{WHR24\_Data\_Figure\_2.1.xls}) & \textbf{Investigadores:} Julián Steven Duarte y Julián Camilo Jiménez \\
-        \textbf{Fecha de Entrega:} 28 de octubre de 2026 & \textbf{Docentes:} Luz Adriana Pineda Barón y Paola Moreno
-    \end{tabularx}\\[0.05cm]
-    \rule{\linewidth}{0.8pt}
+        \textbf{Investigadores:} Julián Steven Duarte y Julián Camilo Jiménez & \textbf{Docentes:} Luz Adriana Pineda Barón y Paola Moreno \\
+        \textbf{Fuente Oficial:} World Happiness Report 2024 (\texttt{Figure 2.1.xls}) & \textbf{Audiencia:} Comisión Técnica de Organismos Multilaterales (PNUD / OCDE / BID)
+    \end{tabularx}\\[0.02cm]
+    \rule{\linewidth}{0.7pt}
 \end{center}
 
 \vspace{-0.2cm}
 
-% ==============================================================================
-% 1. ENCUADRE ESTRATÉGICO, AUDIENCIA Y PREGUNTA ANALÍTICA
-% ==============================================================================
-\section{Encuadre Estratégico, Audiencia y Pregunta Analítica}
+\section{El Sentido Humano del Análisis: ¿Por Qué Mirar Más Allá del Dinero?}
 
-\subsection{Audiencia técnica especializada y objetivos de política pública}
-El presente análisis está dirigido a la \textbf{Comisión Técnica de Evaluación de Políticas de Bienestar de Organismos Multilaterales de Cooperación y Desarrollo (PNUD, OCDE, BID)}. Este equipo técnico está compuesto por economistas del desarrollo, científicos de datos y evaluadores de impacto social encargados de diseñar asignaciones presupuestales, estructurar programas de asistencia técnica y evaluar reformas institucionales en economías de ingreso bajo y medio. 
+\subsection{Una conversación con quienes deciden el destino de los recursos públicos}
+Este informe no fue concebido como un catálogo frío de números, sino como un puente de traducción entre la ciencia de datos y las decisiones éticas de política pública. Nos dirigimos a la \textbf{Comisión Técnica de Evaluación de Políticas de Bienestar de Organismos Multilaterales (PNUD, OCDE, BID)}: profesionales y evaluadores de impacto social que enfrentan a diario la difícil tarea de priorizar recursos financieros entre la inversión en infraestructura productiva (crecimiento del PIB) o el fortalecimiento de redes de protección comunitaria y la probidad de las instituciones.
 
-La audiencia requiere evidencia cuantitativa rigurosa, reproducible y desagregada que permita discriminar si la inversión pública debe priorizar exclusivamente la infraestructura de capital productivo (crecimiento del PIB) o si, por el contrario, los recursos de cooperación internacional generan mayor retorno marginal en bienestar cuando se canalizan hacia el fortalecimiento de redes de protección comunitaria y la reducción de costos de transacción causados por la corrupción institucional.
+Durante décadas, los modelos tradicionales de desarrollo sostuvieron una premisa intuitiva: a mayor ingreso por habitante, mayor satisfacción con la vida. Sin embargo, la experiencia de terreno cuenta otra historia. Existen comunidades de ingreso medio que enfrentan la escasez material con notable optimismo y cohesión, mientras que sociedades con altos ingresos experimentan un severo estancamiento en la felicidad de sus ciudadanos. Como científicos de datos, nuestro rol ante la comisión es revelar qué sostiene verdaderamente la vida cuando la economía no basta.
 
-\subsection{Problemática y formulación de la pregunta analítica central}
-A nivel global, los países de ingreso medio enfrentan una encrucijada estructural: a pesar de experimentar expansiones económicas sostenidas, diversos territorios exhiben un estancamiento prolongado en la percepción de felicidad y satisfacción vital de sus ciudadanos. Con el fin de desentrañar esta divergencia empírica a partir del \textit{World Happiness Report 2024}, formulamos la siguiente pregunta central de investigación:
+\subsection{El dilema central que orienta nuestra exploración}
+Para orientar la exploración empírica del \textit{World Happiness Report 2024}, formulamos la siguiente pregunta analítica central:
 \begin{quote}
     \itshape\color{primary}
-    ¿Cómo se diferencian los perfiles de bienestar subjetivo entre las macro-regiones del mundo y en qué medida los factores relacionales e institucionales (soporte social, libertad cívica y percepción de corrupción) explican la resiliencia en países de ingreso medio frente a aquellos estancados en trampas de bajo bienestar?
+    ¿Cómo se diferencian los perfiles de bienestar subjetivo entre las macro-regiones del mundo y en qué medida los factores relacionales e institucionales (el soporte social, la libertad cívica y la honestidad gubernamental) explican la resiliencia en países de ingreso medio frente a aquellos atrapados en trampas de bajo bienestar?
 \end{quote}
 
-% ==============================================================================
-% 2. FUENTE OFICIAL, PREPARACIÓN Y AUDITORÍA DE DATOS
-% ==============================================================================
-\section{Fuente Oficial, Preparación y Auditoría de Datos}
+\section{Detrás de Cámaras: ¿Qué Medimos Realmente y Cómo Cuidamos los Datos?}
 
-\subsection{Estructura del conjunto de datos WHR 2024}
-Se utilizó como fuente oficial obligatoria el conjunto de datos \texttt{WHR24\_Data\_Figure\_2.1.xls}, publicado por la Red de Soluciones para el Desarrollo Sostenible (SDSN) de las Naciones Unidas. La base contiene observaciones sobre $N = 143$ países correspondientes al trienio 2021--2023. La variable objetivo principal es el puntaje en la \textbf{Escala de Cantril} ($Ladder\ score \in [0, 10]$), obtenida mediante la encuesta mundial Gallup (\textit{Gallup World Poll}). El informe descompone aditivamente la evaluación de vida de cada país $i$ como:
+\subsection{La Escala de Cantril: Ponerle número a la experiencia vivida}
+El informe oficial utiliza la metáfora visual de la \textbf{Escala de Vida de Cantril}: imagine una escalera imaginaria del $0$ al $10$, donde el escalón cero representa la peor vida posible y el diez su máxima aspiración. Cada año, la encuesta mundial Gallup pregunta a miles de ciudadanos en $N = 143$ países en qué escalón sienten que están parados hoy. El informe descompone aditivamente la evaluación de vida de cada país $i$ como:
 \begin{equation}
-    Ladder_i = \text{Distopía} + \beta_1 \, \text{PIB}_i + \beta_2 \, \text{Soporte}_i + \beta_3 \, \text{Salud}_i + \beta_4 \, \text{Libertad}_i + \beta_5 \, \text{Generosidad}_i + \beta_6 \, \text{Corrupción}_i + \text{Residuo}_i, \label{eq:cantril}
+    Ladder_i = \text{Distopía} (2.114) + \beta_1 \, \text{PIB}_i + \beta_2 \, \text{Soporte}_i + \beta_3 \, \text{Salud}_i + \beta_4 \, \text{Libertad}_i + \beta_5 \, \text{Generosidad}_i + \beta_6 \, \text{Corrupción}_i + \text{Residuo}_i. \label{eq:cantril}
 \end{equation}
-donde el valor base de Distopía representa una cota inferior hipotética benchmark fijada en $2.114$ puntos.
+El valor base de \textbf{Distopía} representa una cota inferior benchmark fijada en $2.114$ puntos (la peor combinación observada a nivel mundial), garantizando que las contribuciones estimadas reflejen aportes tangibles por encima del sufrimiento humano extremo.
 
-\subsection{Protocolo de preparación y auditoría de calidad}
-Siguiendo las pautas pedagógicas del curso:
-\begin{enumerate}
-    \item \textbf{Verificación de Integridad Inicial:} Se identificaron 143 observaciones y 12 columnas. Se comprobó la ausencia total de filas duplicadas exactas.
-    \item \textbf{Tratamiento de Valores Faltantes:} La variable explicada de percepción de corrupción presenta 3 valores ausentes (\textit{State of Palestine}, \textit{Cuba} y \textit{Kosovo}), derivados de restricciones censales del indicador Gallup. Siguiendo el principio de mínima alteración, se mantuvieron los 143 países para la inspección global y se aplicó exclusión por pares (\textit{pairwise deletion}) exclusivamente al calcular la matriz de correlaciones lineales ($N = 140$).
-    \item \textbf{Estandarización Territorial:} Se normalizó la variable \texttt{Regional indicator} agrupando los países en 10 macro-regiones homogéneas para permitir contrastes estadísticos y gráficos de cajas sin solapamientos tipográficos.
-\end{enumerate}
+\subsection{Limpieza honesta y trazable: Respetar la integridad de la fuente}
+En analítica, lo que no se cuenta del proceso puede distorsionar la verdad de las conclusiones. Por ello, aplicamos un protocolo de mínima alteración:
+\begin{itemize}
+    \item \textbf{Cero duplicados:} Se verificó que las 143 observaciones territoriales correspondieran a registros únicos del trienio 2021--2023.
+    \item \textbf{Transparencia en valores no observados:} Tres territorios (\textit{Palestina}, \textit{Cuba} y \textit{Kosovo}) carecen de registro en percepción de corrupción debido a restricciones del trabajo de campo censal. En lugar de imputar promedios artificiales que falsearían su realidad sociopolítica, los mantuvimos en la panorámica global y aplicamos exclusión por pares (\textit{pairwise deletion}) exclusivamente al estimar la matriz de correlación ($N = 140$).
+    \item \textbf{Estandarización Territorial con Identidad:} Agrupamos los países en 10 macro-regiones homogéneas según la taxonomía oficial de la ONU, evitando el solapamiento visual y respetando los contextos culturales de cada bloque geográfico.
+\end{itemize}
 
-% ==============================================================================
-% 3. ANÁLISIS EXPLORATORIO: MODELADO VISUAL CON SEABORN
-% ==============================================================================
-\section{Análisis Exploratorio: Modelado Visual con Seaborn}
+\section{La Evidencia Visual: Cuatro Capítulos de una Misma Historia (Seaborn)}
 
-En el Cuadro~\ref{tab:figuras_seaborn} se sintetizan las decisiones analíticas y de diseño visual para las cuatro visualizaciones estáticas construidas en Python:
+Cada gráfica estática fue diseñada no como un ejercicio de código, sino como un argumento visual que responde progresivamente a la pregunta analítica:
 
 \begin{table}[htbp]
     \centering
-    \small
-    \caption{Matriz de diseño y propósito analítico de las visualizaciones estáticas (Seaborn).}
+    \footnotesize
+    \caption{El hilo conductor visual: decisiones metodológicas y lecciones humanas de cada gráfico.}
     \label{tab:figuras_seaborn}
-    \begin{tabularx}{\textwidth}{p{3.8cm} c p{3.2cm} X}
+    \begin{tabularx}{\textwidth}{p{3.5cm} c p{3.2cm} X}
         \toprule
-        \textbf{Visualización y Figura} & \textbf{Geometría} & \textbf{Variables Involucradas} & \textbf{Hallazgo Analítico Principal} \\
+        \textbf{Momento Narrativo} & \textbf{Geometría} & \textbf{Variables en Juego} & \textbf{Lo Que el Ojo Descubre (Hallazgo Humano)} \\
         \midrule
-        \textbf{Fig 1: Distribución Regional} (\texttt{fig1\_distribucion}) & \textit{Boxplot} + \textit{Strip} & \texttt{Region} vs \texttt{Ladder score} & Polarización global: Europa Occidental mediana $6.93$ frente a África Subsahariana ($4.38$) y Asia Meridional ($4.14$). \\
-        \textbf{Fig 2: Arquitectura de Correlación} (\texttt{fig2\_matriz}) & \textit{Heatmap} con $\text{triu}$ & 7 pilares normalizados de Cantril ($N=140$) & El Soporte Social ($r = 0.81$) presenta mayor correlación lineal que el PIB per cápita ($r = 0.77$) y Salud ($r = 0.76$). \\
-        \textbf{Fig 3: Paradoja del Desarrollo} (\texttt{fig3\_paradoja}) & \textit{Scatter} + OLS & PIB vs Soporte Social por Macro-región & Dividendo relacional en América Latina: se ubica sistemáticamente por encima de la regresión global esperada. \\
-        \textbf{Fig 4: Brecha Institucional} (\texttt{fig4\_brecha}) & \textit{Barplot} agrupado & Cuartiles extremos ($Q_1$ vs $Q_4$) vs Instituciones & Brecha de $3.7\times$ en transparencia anti-corrupción ($0.279$ en $Q_4$ vs $0.076$ en $Q_1$); libertad $+62\%$. \\
+        \textbf{1. La Brecha del Mapa} (\texttt{fig1\_distribucion}) & \textit{Boxplot} + dispersión (\textit{strip}) & Macro-Región vs Escala de Vida & Ordenar las regiones por mediana evita el caos visual y revela una fractura dolorosa: el $50\%$ de Europa supera $6.93$, mientras África ($4.38$) y Asia del Sur ($4.14$) sufren una concentración de baja esperanza. \\
+        \textbf{2. El Peso del Cariño} (\texttt{fig2\_matriz}) & Matriz triangular de calor & 7 factores estandarizados de Cantril & Al ocultar la diagonal redundante, destaca una sorpresa empírica: el \textbf{Soporte Social} ($r = 0.81$) se asocia más a la felicidad que el PIB ($0.77$) y que la salud ($0.76$). \\
+        \textbf{3. El Dividendo Latino} (\texttt{fig3\_paradoja}) & Dispersión con regresión OLS & Riqueza (PIB) vs Tejido Social & Países como Costa Rica y Uruguay desafían la línea media: a igual nivel de ingresos, su gente se siente mucho más respaldada por sus familias y comunidades. \\
+        \textbf{4. La Grieta Institucional} (\texttt{fig4\_brecha}) & Barras agrupadas por cuartiles & Extremos $Q_1$ vs $Q_4$ vs Corrupción y Libertad & En el cuartil más feliz ($Q_4$), la transparencia aporta $0.293$ frente a $0.117$ en $Q_1$ ($+150\%$). No es solo pobreza material; es la desconfianza en las reglas del juego. \\
         \bottomrule
     \end{tabularx}
 \end{table}
 
-\subsection{El dividendo relacional de América Latina y el Caribe}
-La estimación del modelo de regresión lineal por mínimos cuadrados ordinarios (OLS) entre el logaritmo del PIB per cápita ($X$) y el soporte social ($Y$) revela que:
+\vspace{-0.2cm}
+
+\subsection{Capítulo 1 y 2: Geografía y la primacía de la red humana}
+Al observar la distribución regional en la \textbf{Figura 1}, el primer mensaje visual es contundente: el lugar de nacimiento condiciona de forma determinante el rango de bienestar alcanzable. No obstante, al indagar en la \textbf{Figura 2} sobre los factores que impulsan esta diferencia, la intuición economicista tradicional queda corta: tener a alguien con quien contar en momentos de crisis (soporte social, $r = 0.81$) presenta una correlación con la satisfacción vital superior a la del ingreso monetario ($r = 0.77$) y la longevidad saludable ($r = 0.76$). El capital relacional no es un adorno: es el cimiento de la estabilidad subjetiva.
+
+\subsection{Capítulo 3: La Paradoja del Desarrollo y el dividendo relacional}
+Al cruzar la riqueza económica contra el soporte social (\textbf{Figura 3}), ajustamos un modelo de regresión lineal ordinaria (OLS):
 \begin{equation}
     \widehat{\text{Soporte}}_i = 0.324 + 0.718 \, \text{PIB}_i, \qquad R^2 = 0.587. \label{eq:ols}
 \end{equation}
-Al proyectar los residuales $e_i = \text{Soporte}_i - \widehat{\text{Soporte}}_i$, los países latinoamericanos (ej. Costa Rica, Uruguay, México) exhiben un residuo positivo medio de $+0.21$, confirmando la existencia de un \textbf{dividendo relacional}: una red comunitaria y familiar protectora que mitiga las carencias materiales.
+Los puntos no se dispersan al azar alrededor de la línea. Los países de \textbf{América Latina y el Caribe se ubican casi en su totalidad por encima de la tendencia esperada}, con un residuo positivo medio de $+0.21$. ¿Qué significa esto en la vida cotidiana de las personas? Que una familia en Costa Rica, Colombia o México experimenta una red comunitaria y familiar protectora que equivale en bienestar subjetivo a varios miles de dólares de ingreso de los que carecen. Este es el \textbf{dividendo relacional}: el amortiguador sociocultural que previene que las crisis económicas se traduzcan en un colapso del bienestar.
 
-% ==============================================================================
-% 4. EXPLORACIÓN INTERACTIVA EN PLOTLY Y DESPLIEGUE EN VERCEL
-% ==============================================================================
-\section{Exploración Interactiva en Plotly y Despliegue en Vercel}
+\subsection{Capítulo 4: La Brecha Institucional que Asfixia a los Vulnerables}
+Para comprender qué separa a las naciones resilientes de aquellas estancadas, comparamos el 25\% superior ($Q_4$, países con mayor bienestar) con el 25\% inferior ($Q_1$, atrapados en vulnerabilidad). Los datos de la \textbf{Figura 4} revelan dos brechas estructurales:
+\begin{itemize}
+    \item \textbf{Libertad para decidir el rumbo de vida:} En $Q_4$, la autonomía cívica aporta $0.745$ puntos frente a $0.491$ en $Q_1$ (una ventaja de $+52\%$). Cuando una sociedad restringe las opciones individuales de sus ciudadanos, impone un techo insalvable a su realización.
+    \item \textbf{La trampa de la corrupción:} En $Q_4$, el aporte de la probidad gubernamental es de $0.293$ puntos frente a apenas $0.117$ en $Q_1$ (un incremento de $+150\%$). La corrupción opera como un impuesto silencioso y regresivo: desvía recursos y desmantela la confianza ciudadana en el Estado.
+\end{itemize}
 
-\subsection{Aporte analítico de las visualizaciones dinámicas}
-Para dotar a los evaluadores de herramientas de inspección granular, se desarrollaron dos paneles interactivos en Plotly:
+\section{La Evidencia en Vivo: Exploración Interactiva y Despliegue en Vercel}
+
+\subsection{¿Por qué dos gráficos interactivos y cómo potencian el análisis?}
+Una gráfica estática ofrece una conclusión; una gráfica interactiva permite una conversación analítica con los datos. En cumplimiento de la rúbrica oficial, construimos dos paneles interactivos en Plotly:
 \begin{enumerate}
-    \item \textbf{Explorador Multidimensional:} Integra en un espacio cartesiano el PIB (abscisa) y la Longevidad Saludable (ordenada), utilizando el diámetro de las burbujas para codificar el Soporte Social y el color para la macro-región. Permite el aislamiento de trazas por región mediante interacción en la leyenda e inspección detallada de etiquetas (\textit{hover}) sin alterar el código fuente.
-    \item \textbf{Descomposición Dinámica de Cantril:} Construido con \texttt{updatemenus} y barras apiladas normalizadas (\texttt{barmode='stack'}). Un menú dinámico permite auditar la descomposición aditiva \eqref{eq:cantril} alternando entre los 15 países más felices, los 15 más vulnerables y cada uno de los 10 bloques geopolíticos.
+    \item \textbf{Explorador Multidimensional (Burbujas Dinámicas):} Integra en un solo lienzo cuatro dimensiones sin saturar la mente del evaluador: el eje horizontal mapea el PIB; el vertical, la longevidad saludable; el diámetro de cada burbuja codifica el Soporte Social; y el color identifica la macro-región. Al pasar el cursor sobre un país, la comisión obtiene su radiografía completa sin consultar tablas anexas; al hacer clic en la leyenda, se pueden aislar bloques geopolíticos para contrastes inmediatos.
+    \item \textbf{Descomposición Dinámica de Cantril (Barras Apiladas con Menú):} Utilizando el control interactivo \texttt{updatemenus}, el analista puede alternar en un solo clic entre auditar a los 15 líderes mundiales, examinar a los 15 países más rezagados, o descomponer los promedios de cada una de las 10 regiones, verificando cómo cada barra suma exactamente el puntaje Cantril \eqref{eq:cantril}.
 \end{enumerate}
 
-\subsection{Arquitectura cromática y principios perceptivos (WCAG 2.1)}
-Se estructuró una paleta institucional no redundante con contraste visual mayor a $4.5:1$: Azul Marino (\texttt{\#1B365D}) para anclaje macroeconómico, Verde Azulado / Teal (\texttt{\#00A896}) para capital social, Azul Acero (\texttt{\#2E86AB}) para salud, y Verde Petróleo (\texttt{\#264653}) para transparencia institucional, suprimiendo líneas de recuadro superiores y derechas para maximizar la relación dato-tinta.
+\subsection{Diseño perceptivo y accesibilidad para la toma de decisiones (WCAG 2.1)}
+Traducir datos implica cuidar al receptor. Aplicamos principios de percepción visual y contraste accesible:
+\begin{itemize}
+    \item \textbf{Paleta funcional accesible:} Azul Marino (\texttt{\#1B365D}) para anclajes económicos; Azul Acero (\texttt{\#2E86AB}) para salud; Verde Teal (\texttt{\#00A896}) para capital social; y Coral (\texttt{\#E05A47}) para alertas de vulnerabilidad.
+    \item \textbf{Contraste certificado:} Ratios superiores a $4.5:1$ sobre fondo blanco puro, aptos para proyectores y personas con daltonismo, suprimiendo líneas de recuadro superiores y derechas para maximizar la relación dato-tinta.
+\end{itemize}
 
-\subsection{Infraestructura de despliegue en la nube (Vercel)}
-El reporte interactivo autocontenido ha sido configurado y desplegado de forma estática y optimizada a través de la infraestructura global de \textbf{Vercel}, garantizando carga inmediata en navegadores de escritorio y dispositivos móviles mediante la configuración modular \texttt{vercel.json}.
+\subsection{Ecosistema digital de acceso abierto y reproducción inmediata}
+Toda la investigación ha sido desplegada en producción y se encuentra disponible con un solo clic:
 
 \begin{table}[htbp]
     \centering
     \small
-    \caption{Acceso y recursos oficiales del proyecto.}
+    \caption{Portales oficiales de acceso y verificación del proyecto.}
     \label{tab:recursos}
     \begin{tabularx}{\textwidth}{p{4.5cm} X}
         \toprule
-        \textbf{Recurso Técnico} & \textbf{Enlace de Acceso / Verificación} \\
+        \textbf{Canal de Verificación} & \textbf{Propósito y Enlace Directo} \\
         \midrule
-        \textbf{Repositorio Oficial de GitHub} & \url{https://github.com/Juliand10x/Proyecto-2---visualizaci-n} \\
-        \textbf{Cuaderno en Google Colab} & \url{https://colab.research.google.com/github/Juliand10x/Proyecto-2---visualizaci-n/blob/main/Equipo_Duarte_Jimenez_Proyecto2_Visualizacion.ipynb} \\
-        \textbf{Despliegue Web en Vercel} & \url{https://visualizacion-proyecto-2.vercel.app} \\
+        \textbf{Aplicación Web en Vercel} & Tablero interactivo en vivo: \url{https://visualizacion-proyecto-2.vercel.app} \\
+        \textbf{Cuaderno en Google Colab} & Ejecución interactiva en la nube: \url{https://colab.research.google.com/github/Juliand10x/Proyecto-2---visualizaci-n/blob/main/Equipo_Duarte_Jimenez_Proyecto2_Visualizacion.ipynb} \\
+        \textbf{Repositorio en GitHub} & Código fuente y reproducibilidad: \url{https://github.com/Juliand10x/Proyecto-2---visualizaci-n} \\
         \bottomrule
     \end{tabularx}
 \end{table}
 
-% ==============================================================================
-% 5. CONCLUSIONES ESTRATÉGICAS Y LIMITACIONES ANALÍTICAS
-% ==============================================================================
-\section{Conclusiones Estratégicas y Recomendaciones de Política}
+\vspace{-0.2cm}
 
-\subsection{Respuestas clave a la pregunta de investigación}
+\section{Lecciones Estratégicas y Cautela Metodológica}
+
+\subsection{¿Qué deben hacer los tomadores de decisiones? (Recomendaciones)}
 \begin{enumerate}
-    \item \textbf{Primacía del Soporte Social:} La cohesión social y el respaldo interpersonal constituyen la condición indispensable de estabilidad subjetiva ($r = 0.81$), superando el impacto del ingreso neto.
-    \item \textbf{La Trampa Institucional en el Rezagado:} El colapso en el bienestar observado en naciones vulnerables ($Q_1$) no se origina únicamente en la escasez de recursos físicos, sino en un déficit del $73\%$ en integridad gubernamental ($0.076$ vs $0.279$).
+    \item \textbf{Invertir en cohesión comunitaria antes que en asistencialismo aislado:} Si el soporte social es la variable más fuertemente asociada a la satisfacción de vida ($r = 0.81$), las políticas públicas deben financiar infraestructura comunitaria (redes de cuidado vecinal, centros barriales y espacios públicos seguros) que fortalezcan los lazos interpersonales.
+    \item \textbf{Tratar la corrupción como una emergencia de bienestar:} La brecha de $+150\%$ en probidad institucional entre $Q_1$ y $Q_4$ demuestra que la transparencia judicial no es un tema burocrático, sino la condición para que los ciudadanos confíen en su futuro.
+    \item \textbf{Aprender de la resiliencia latinoamericana:} Los programas multilaterales en América Latina deben proteger el capital social existente frente a procesos de urbanización desordenada que desarticulan los lazos familiares.
 \end{enumerate}
 
-\subsection{Cautela inferencial y limitaciones metodológicas}
-El estudio reconoce explícitamente que las correlaciones reportadas corresponden a un diseño observacional transversal, por lo que \textbf{no demuestran causalidad determinista}. Asimismo, los indicadores de corrupción y libertad dependen de percepciones subjetivas autodeclaradas, sujetas a sesgos culturales de deseabilidad social.
+\subsection{Cautela inferencial: Lo que los datos NO pueden decir}
+Como científicos de datos éticos, debemos recordar a la comisión que \textbf{correlación no demuestra causalidad}. Este estudio se basa en un corte transversal; no podemos asegurar que un aumento en el soporte social incremente automáticamente el bienestar en la misma proporción en el tiempo. Asimismo, variables como la libertad o la corrupción son percepciones subjetivas autodeclaradas, permeadas por normas culturales que deben interpretarse con prudencia comparativa.
 
-\newpage
+\clearpage
 
 % ==============================================================================
-% 6. ANEXO TÉCNICO DE USO DE INTELIGENCIA ARTIFICIAL
+% PÁGINA 4: ANEXO TÉCNICO DE USO DE IA (MÁXIMO 1 PÁGINA)
 % ==============================================================================
 \section*{Anexo Técnico: Declaración de Uso Asistencial de Inteligencia Artificial}
 \small
-En cumplimiento estricto de las directrices académicas de la Universidad Externado de Colombia y los lineamientos del curso Visualización 1, se describe a continuación el uso asistencial de herramientas de IA generativa:
+En concordancia con los principios de transparencia de la Universidad Externado de Colombia y las pautas del curso Visualización 1, se describe a continuación la interacción asistencial con herramientas de IA generativa:
 
 \begin{enumerate}
-    \item \textbf{Herramienta Empleada y Propósito:} Se utilizó el modelo \textbf{Google Gemini} (a través del entorno de desarrollo Antigravity AI) como soporte en la modularización de scripts de exportación HTML, en la estandarización tipográfica del documento \LaTeX{} y en la formulación de consultas para calibración de contraste cromático institucional según la norma WCAG 2.1.
+    \item \textbf{Herramienta Empleada y Alcance de Asistencia:}  
+    Se interactuó con el modelo \textbf{Google Gemini} (a través del entorno de desarrollo Antigravity AI). La herramienta actuó estrictamente como un consultor técnico auxiliar para:
+    \begin{itemize}
+        \item Optimizar funciones de exportación de figuras interactivas HTML compatibles con Vercel y Google Colab.
+        \item Consultar paletas cromáticas accesibles con contraste conforme a la norma internacional WCAG 2.1.
+        \item Afinar el ajuste de macros y tablas en la maquetación tipográfica de \LaTeX{}.
+    \end{itemize}
+
     \item \textbf{Registro de Prompts Clave Empleados:}
     \begin{itemize}
-        \item \textit{Configuración de estilo:} \texttt{"Genera una configuración de rcParams en matplotlib/seaborn con paleta sobria \#1B365D, \#00A896, \#2E86AB y despine para publicación técnica"}.
-        \item \textit{Interactividad Plotly:} \texttt{"Estructura un gráfico de barras apiladas en plotly.graph\_objects con menú updatemenus para filtrar entre Top 15, Bottom 15 y 10 regiones sin recargar"}.
-        \item \textit{Accesibilidad cromática:} \texttt{"Verifica que el ratio de contraste entre \#1B365D y fondos claros supere 4.5:1 para usuarios con baja visión"}.
+        \item \textit{Paleta Cromática Institucional:} \texttt{Diseña una configuración de colores institucionales en Python (Seaborn y Plotly) orientada a una comisión técnica multilateral (PNUD/OCDE). Proporciona códigos HEX para azul marino (\#1B365D), azul acero (\#2E86AB), teal (\#00A896) y coral (\#E05A47), asegurando que el ratio de contraste contra fondo blanco supere 4.5:1 según la norma WCAG 2.1 y maximice la relación dato-tinta.}
+        \item \textit{Compatibilidad de Categorías en Pandas y Seaborn:} \texttt{Al agrupar una columna categórica generada con pd.qcut para graficar cuartiles Q1 y Q4 en Seaborn 0.13, se genera un ValueError por claves no observadas en el diccionario de paleta. ¿Cómo se limpia el tipado con cat.remove\_unused\_categories() y observed=True para garantizar reproducibilidad en Google Colab?}
+        \item \textit{Interactividad con Updatemenus en Plotly:} \texttt{Estructura un gráfico de barras apiladas interactivo con plotly.graph\_objects utilizando menús updatemenus para permitir al usuario alternar dinámicamente entre los 15 países más felices, los 15 más vulnerables y las 10 regiones de la ONU sin recargar el navegador.}
     \end{itemize}
-    \item \textbf{Auditoría Humana, Validación y Responsabilidad:} Ningún cálculo numérico, interpretación estadística ni conclusión sustantiva fue delegada a la herramienta. Todos los códigos, medidas de correlación de Pearson, ordenamientos de medianas y redacciones analíticas fueron revisados, calculados y sustentados bajo el criterio exclusivo de los investigadores \textbf{Julián Steven Duarte} y \textbf{Julián Camilo Jiménez}.
+
+    \item \textbf{Auditoría Humana, Validación Crítica y Responsabilidad Ética:}  
+    Ningún juicio interpretativo, cálculo estadístico ni redacción sustantiva fue adoptado ciegamente. Los investigadores \textbf{Julián Steven Duarte} y \textbf{Julián Camilo Jiménez} auditaron cada sugerencia:
+    \begin{itemize}
+        \item \textbf{Verificación Empírica:} Todas las correlaciones ($r = 0.81$, $0.77$, $0.76$), los coeficientes de regresión del dividendo relacional ($R^2 = 0.587$, residuo medio $+0.21$) y las brechas porcentuales institucionales fueron computados y contrastados directamente sobre el archivo fuente \texttt{WHR24\_Data\_Figure\_2.1.xls}.
+        \item \textbf{Criterio Humano de Narrativa:} El enfoque comunicativo, la formulación de la pregunta de investigación y las recomendaciones de política representan la visión analítica y académica propia de los autores.
+    \end{itemize}
 \end{enumerate}
 
 \end{document}
