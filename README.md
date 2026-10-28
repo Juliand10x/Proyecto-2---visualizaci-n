@@ -2,7 +2,7 @@
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Juliand10x/Proyecto-2---visualizaci-n/blob/main/Equipo_Duarte_Jimenez_Proyecto2_Visualizacion.ipynb)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repositorio_Oficial-1B365D?logo=github)](https://github.com/Juliand10x/Proyecto-2---visualizaci-n)
-[![Reporte Interactivo](https://img.shields.io/badge/Plotly-Reporte_Interactivo_HTML-2E86AB?logo=plotly)](https://htmlpreview.github.io/?https://github.com/Juliand10x/Proyecto-2---visualizaci-n/blob/main/Equipo_Duarte_Jimenez_Proyecto2_Visualizaciones_Interactivas.html)
+[![Vercel Live](https://img.shields.io/badge/Vercel-Despliegue_En_Vivo-black?logo=vercel)](https://visualizacion-proyecto-2.vercel.app)
 
 **Curso:** Visualización 1 — Universidad Externado de Colombia  
 **Integrantes:** Julián Steven Duarte y Julián Camilo Jiménez  
