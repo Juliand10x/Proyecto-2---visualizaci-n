@@ -1,89 +1,12 @@
 ================================================================================
-UNIVERSIDAD EXTERNADO DE COLOMBIA · VISUALIZACIÓN 1
-PROYECTO 2: VISUALIZACIÓN REPRODUCIBLE EN PYTHON (SEABORN Y PLOTLY)
+ENLACES OFICIALES DEL PROYECTO (DESPLIEGUE Y REPRODUCCIÓN)
 ================================================================================
 
-Integrantes del Equipo:
-- Julián Steven Duarte
-- Julián Camilo Jiménez
-
-Docentes:
-- Luz Adriana Pineda Barón
-- Paola Moreno
-
-Fecha de Entrega: 28 de octubre de 2026
-Fuente Oficial: World Happiness Report 2024 (WHR24_Data_Figure_2.1.xls)
-
---------------------------------------------------------------------------------
-1. ENLACES OFICIALES EN LA NUBE (DESPLIEGUE Y REPRODUCCIÓN)
---------------------------------------------------------------------------------
-
-▲ Despliegue Web Interactivo en Vivo (Vercel):
+1. Despliegue Web Interactivo en Vivo (Vercel):
    https://visualizacion-proyecto-2.vercel.app
-   * Contiene el tablero interactivo autocontenido de Plotly con el Explorador
-     Multidimensional y la Descomposición Dinámica de Cantril con menú desplegable.
 
-● Ejecución Directa en Google Colab:
+2. Cuaderno Ejecutable en Google Colab:
    https://colab.research.google.com/github/Juliand10x/Proyecto-2---visualizaci-n/blob/main/Equipo_Duarte_Jimenez_Proyecto2_Visualizacion.ipynb
-   * Cuaderno listo para ejecutar en la nube con un solo clic. Incluye la celda
-     interactiva files.upload() acorde al estándar pedagógico de las clases.
 
-🔗 Repositorio Oficial en GitHub:
+3. Repositorio Oficial en GitHub:
    https://github.com/Juliand10x/Proyecto-2---visualizaci-n
-   * Historial de commits, control de versiones, código fuente y trazabilidad.
-
---------------------------------------------------------------------------------
-2. ESTRUCTURA Y DESCRIPCIÓN DE LOS ENTREGABLES OFICIALES
---------------------------------------------------------------------------------
-
-El presente paquete cumple estrictamente con los 5 entregables y la convención
-oficial de nomenclatura exigida en la rúbrica (EquipoX_Proyecto2_NombreArchivo):
-
-1. ENTREGABLE 1: Cuaderno Jupyter Reproducible
-   - Archivo: Equipo_Duarte_Jimenez_Proyecto2_Visualizacion.ipynb
-   - Descripción: Análisis exploratorio completo ejecutado con cero errores.
-     Incluye la preparación documentada, las 4 visualizaciones estáticas
-     con Seaborn, las 2 interactivas con Plotly y las interpretaciones analíticas.
-
-2. ENTREGABLE 2: Reporte Interactivo Autocontenido (Plotly)
-   - Archivo: Equipo_Duarte_Jimenez_Proyecto2_Visualizaciones_Interactivas.html
-   - Descripción: Archivo HTML autónomo de 4.9 MB con interactividad total en
-     JavaScript para explorar variables, aislar regiones por leyenda y filtrar
-     descomposiciones por ranking y macro-región.
-
-3. ENTREGABLE 3: Documento Técnico-Ejecutivo (Máximo 3 páginas)
-   - Archivo: Equipo_Duarte_Jimenez_Proyecto2_Documento_Ejecutivo.pdf (Págs. 1 a 3)
-   - Descripción: Informe narrativo y sintético estructurado para la Comisión
-     Técnica de Organismos Multilaterales (PNUD / OCDE / BID). Sintetiza la pregunta
-     analítica, la preparación de datos, los 4 hallazgos de Seaborn, la interacción
-     de Plotly, las recomendaciones de política y la cautela inferencial.
-
-4. ENTREGABLE 4: Carpeta con Archivo Original de Datos y Recursos
-   - Carpeta: Datos_Proyecto/
-     * Archivo: Datos_Proyecto/WHR24_Data_Figure_2.1.xls
-   - Carpeta: figuras/
-     * fig1_distribucion_regional.png (300 DPI)
-     * fig2_matriz_correlaciones.png (300 DPI)
-     * fig3_paradoja_desarrollo.png (300 DPI)
-     * fig4_brecha_institucional.png (300 DPI)
-   - Descripción: Base oficial sin alteraciones y exportaciones gráficas vectorizadas.
-
-5. ENTREGABLE 5: Anexo Técnico de Uso de Inteligencia Artificial (Máximo 1 página)
-   - Archivo: Equipo_Duarte_Jimenez_Proyecto2_Documento_Ejecutivo.pdf (Página 4)
-   - Archivo Fuente: Equipo_Duarte_Jimenez_Proyecto2_Documento_Ejecutivo.tex
-   - Descripción: Declaración de transparencia y uso asistencial de Google Gemini
-     en Antigravity AI, registro de prompts clave y reflexión sobre la auditoría y
-     responsabilidad exclusiva de los autores.
-
---------------------------------------------------------------------------------
-3. INSTRUCCIONES DE REPRODUCCIÓN RÁPIDA LOCAL
---------------------------------------------------------------------------------
-
-Para reproducir el flujo analítico desde una terminal:
-1. Instalar dependencias:
-   pip install pandas seaborn plotly openpyxl jinja2 nbconvert
-2. Ejecutar el cuaderno:
-   jupyter nbconvert --to notebook --execute Equipo_Duarte_Jimenez_Proyecto2_Visualizacion.ipynb
-3. Compilar el documento LaTeX:
-   pdflatex Equipo_Duarte_Jimenez_Proyecto2_Documento_Ejecutivo.tex
-================================================================================
