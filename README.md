@@ -24,10 +24,12 @@
 El proyecto cumple con los 5 entregables y la convención oficial exigida por la rúbrica:
 
 ```text
+├── Equipo_Duarte_Jimenez_Proyecto2_Entregables.zip           # Paquete consolidado listo para entrega
 ├── Equipo_Duarte_Jimenez_Proyecto2_Documento_Ejecutivo.pdf   # Entregable 3 y 5: Informe Ejecutivo (3 págs.) + Anexo IA (1 pág.)
 ├── Equipo_Duarte_Jimenez_Proyecto2_Documento_Ejecutivo.tex   # Código fuente en LaTeX compilado con pdflatex
 ├── Equipo_Duarte_Jimenez_Proyecto2_Visualizacion.ipynb       # Entregable 1: Notebook Jupyter completamente ejecutado y reproducible
 ├── Equipo_Duarte_Jimenez_Proyecto2_Visualizaciones_Interactivas.html # Entregable 2: Reporte interactivo Plotly autocontenido (4.9 MB)
+├── NOTAS_ENTREGA_Y_ENLACES.txt                               # Acceso directo a Vercel, Google Colab y GitHub
 ├── Datos_Proyecto/                                           # Entregable 4: Datos oficiales
 │   └── WHR24_Data_Figure_2.1.xls                             # Archivo fuente original del World Happiness Report 2024
 ├── figuras/                                                  # Figuras estáticas en alta resolución (300 DPI)
